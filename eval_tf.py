@@ -1,13 +1,11 @@
-import os.path as osp
-import numpy as np
-
 import argparse
+import os.path as osp
 
+import numpy as np
 import torch.utils.data
-from torchvision import transforms, datasets
+from torchvision import datasets, transforms
 
 from proxyless_nas.utils import AverageMeter
-
 from proxyless_nas_tensorflow import tf_model_zoo
 
 model_names = sorted(name for name in tf_model_zoo.__dict__

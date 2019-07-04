@@ -1,14 +1,14 @@
 import os
 import sys
 
+import torch
+import torch.nn as nn
+import torch.optim
+
 try:
     from urllib import urlretrieve
 except ImportError:
     from urllib.request import urlretrieve
-
-import torch
-import torch.nn as nn
-import torch.optim
 
 
 def download_url(url, model_dir="~/.torch/proxyless_nas", overwrite=False):
@@ -89,7 +89,8 @@ def count_conv_flop(layer, x):
     out_h = int(x.size()[2] / layer.stride[0])
     out_w = int(x.size()[3] / layer.stride[1])
     delta_ops = layer.in_channels * layer.out_channels * \
-        layer.kernel_size[0] * layer.kernel_size[1] * out_h * out_w / layer.groups
+        layer.kernel_size[0] * layer.kernel_size[1] * \
+        out_h * out_w / layer.groups
     return delta_ops
 
 

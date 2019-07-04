@@ -1,9 +1,10 @@
-from functools import partial
 import json
+from functools import partial
 
 import torch
 
 from proxyless_nas.utils import download_url
+
 from .nas_modules import ProxylessNASNets
 
 

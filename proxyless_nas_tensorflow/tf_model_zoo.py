@@ -1,8 +1,9 @@
-from functools import partial
 import json
 import pickle
+from functools import partial
 
 from proxyless_nas.utils import download_url
+
 from .tf_modules import ProxylessNASNets
 
 

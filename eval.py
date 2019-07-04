@@ -1,17 +1,15 @@
+import argparse
 import os
 import os.path as osp
-
-import argparse
 import time
 
-import torch.nn as nn
 import torch.backends.cudnn as cudnn
+import torch.nn as nn
 import torch.utils.data
-from torchvision import transforms, datasets
-
-from proxyless_nas.utils import AverageMeter, accuracy
+from torchvision import datasets, transforms
 
 from proxyless_nas import model_zoo
+from proxyless_nas.utils import AverageMeter, accuracy
 
 model_names = sorted(name for name in model_zoo.__dict__
                      if name.islower() and not name.startswith("__")
